@@ -1,0 +1,143 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="payroll-cost-center-heading"
+        data-cy="CostCenterCreateUpdateHeading"
+        payrollTranslate="payrollApp.costCenter.home.createOrEditLabel"
+      >
+        Create or edit a Cost Center
+      </h2>
+
+      <div>
+        <payroll-alert-error></payroll-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" payrollTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.costCenter.costCenterCode" for="field_costCenterCode"
+            >Cost Center Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="costCenterCode"
+            id="field_costCenterCode"
+            data-cy="costCenterCode"
+            formControlName="costCenterCode"
+          />
+          <div
+            *ngIf="
+              editForm.get('costCenterCode')!.invalid && (editForm.get('costCenterCode')!.dirty || editForm.get('costCenterCode')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('costCenterCode')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('costCenterCode')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.costCenter.costCenterName" for="field_costCenterName"
+            >Cost Center Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="costCenterName"
+            id="field_costCenterName"
+            data-cy="costCenterName"
+            formControlName="costCenterName"
+          />
+          <div
+            *ngIf="
+              editForm.get('costCenterName')!.invalid && (editForm.get('costCenterName')!.dirty || editForm.get('costCenterName')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('costCenterName')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('costCenterName')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be longer than 100 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.costCenter.costCenterType" for="field_costCenterType"
+            >Cost Center Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="costCenterType"
+            id="field_costCenterType"
+            data-cy="costCenterType"
+            formControlName="costCenterType"
+          />
+          <div
+            *ngIf="
+              editForm.get('costCenterType')!.invalid && (editForm.get('costCenterType')!.dirty || editForm.get('costCenterType')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('costCenterType')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('costCenterType')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be longer than 100 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span payrollTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span payrollTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

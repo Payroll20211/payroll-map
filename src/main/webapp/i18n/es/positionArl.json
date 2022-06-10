@@ -1,0 +1,26 @@
+{
+  "payrollApp": {
+    "positionArl": {
+      "home": {
+        "title": "Position Arls",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Position Arl",
+        "createOrEditLabel": "Crear o editar Position Arl",
+        "notFound": "Ningún Position Arls encontrado"
+      },
+      "created": "Un nuevo Position Arl ha sido creado con el identificador {{ param }}",
+      "updated": "Un Position Arl ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Position Arl ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Position Arl {{ id }}?"
+      },
+      "detail": {
+        "title": "Position Arl"
+      },
+      "id": "ID",
+      "riskClass": "Risk Class",
+      "positionCode": "Position Code",
+      "position": "Position"
+    }
+  }
+}

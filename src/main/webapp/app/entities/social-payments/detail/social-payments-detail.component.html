@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="socialPayments">
+      <h2 data-cy="socialPaymentsDetailsHeading"><span payrollTranslate="payrollApp.socialPayments.detail.title">Social Payments</span></h2>
+
+      <hr />
+
+      <payroll-alert-error></payroll-alert-error>
+
+      <payroll-alert></payroll-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span payrollTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ socialPayments.id }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.socialPayments.code">Code</span></dt>
+        <dd>
+          <span>{{ socialPayments.code }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.socialPayments.description">Description</span></dt>
+        <dd>
+          <span>{{ socialPayments.description }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span payrollTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/social-payments', socialPayments.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span payrollTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "payrollApp": {
+    "socialSecurity": {
+      "home": {
+        "title": "Social Securities",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Social Security",
+        "createOrEditLabel": "Crear o editar Social Security",
+        "notFound": "Ningún Social Securities encontrado"
+      },
+      "created": "Un nuevo Social Security ha sido creado con el identificador {{ param }}",
+      "updated": "Un Social Security ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Social Security ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Social Security {{ id }}?"
+      },
+      "detail": {
+        "title": "Social Security"
+      },
+      "id": "ID",
+      "eps": "Eps",
+      "afp": "Afp"
+    }
+  }
+}

@@ -1,0 +1,158 @@
+<div>
+  <h2 id="page-heading" data-cy="EmployeeHeading">
+    <span payrollTranslate="payrollApp.employee.home.title">Employees</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span payrollTranslate="payrollApp.employee.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-employee"
+        [routerLink]="['/employee/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span payrollTranslate="payrollApp.employee.home.createLabel"> Create a new Employee </span>
+      </button>
+    </div>
+  </h2>
+
+  <payroll-alert-error></payroll-alert-error>
+
+  <payroll-alert></payroll-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="employees?.length === 0">
+    <span payrollTranslate="payrollApp.employee.home.notFound">No employees found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="employees && employees.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span payrollTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.completeName">Complete Name</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.address">Address</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.dateStart">Date Start</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.city">City</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.mobile">Mobile</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.stateEmployee">State Employee</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.user">User</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.contract">Contract</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.allergy">Allergy</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.socialPayments">Social Payments</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.positionArl">Position Arl</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.period">Period</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.operatorType">Operator Type</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.operatorMatriz">Operator Matriz</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.socialSecurity">Social Security</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.income">Income</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.deduction">Deduction</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.employee.documentType">Document Type</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/employee', employee.id, 'view']">{{ employee.id }}</a>
+          </td>
+          <td>{{ employee.completeName }}</td>
+          <td>{{ employee.address }}</td>
+          <td>{{ employee.dateStart | formatMediumDatetime }}</td>
+          <td>{{ employee.city }}</td>
+          <td>{{ employee.mobile }}</td>
+          <td payrollTranslate="{{ 'payrollApp.StateEmployee.' + employee.stateEmployee }}">{{ employee.stateEmployee }}</td>
+          <td>
+            {{ employee.user?.login }}
+          </td>
+          <td>
+            <div *ngIf="employee.contract">
+              <a [routerLink]="['/contract', employee.contract?.id, 'view']">{{ employee.contract?.salary }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.allergy">
+              <a [routerLink]="['/allergy', employee.allergy?.id, 'view']">{{ employee.allergy?.description }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.socialPayments">
+              <a [routerLink]="['/social-payments', employee.socialPayments?.id, 'view']">{{ employee.socialPayments?.description }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.positionArl">
+              <a [routerLink]="['/position-arl', employee.positionArl?.id, 'view']">{{ employee.positionArl?.position }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.period">
+              <a [routerLink]="['/period', employee.period?.id, 'view']">{{ employee.period?.description }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.operatorType">
+              <a [routerLink]="['/operator-type', employee.operatorType?.id, 'view']">{{ employee.operatorType?.description }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.operatorMatriz">
+              <a [routerLink]="['/operator-matriz', employee.operatorMatriz?.id, 'view']">{{ employee.operatorMatriz?.name }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.socialSecurity">
+              <a [routerLink]="['/social-security', employee.socialSecurity?.id, 'view']">{{ employee.socialSecurity?.eps }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.income">
+              <a [routerLink]="['/income', employee.income?.id, 'view']">{{ employee.income?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.deduction">
+              <a [routerLink]="['/deduction', employee.deduction?.id, 'view']">{{ employee.deduction?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.documentType">
+              <a [routerLink]="['/document-type', employee.documentType?.id, 'view']">{{ employee.documentType?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/employee', employee.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" payrollTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/employee', employee.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" payrollTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(employee)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" payrollTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

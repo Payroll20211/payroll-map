@@ -1,0 +1,9 @@
+{
+  "payrollApp": {
+    "StateEmployee": {
+      "null": "",
+      "ACTIVE": "ACTIVO",
+      "INACTIVE": "INACTIVO"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "applications": ["payroll"],
+  "changelogDate": "20220610015846",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "income",
+  "fields": [
+    {
+      "fieldName": "incomeCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Income",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "description",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "income",
+      "relationshipName": "income",
+      "relationshipType": "one-to-many",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "accountPlan",
+      "otherEntityRelationshipName": "income",
+      "ownerSide": true,
+      "relationshipName": "accountPlan",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

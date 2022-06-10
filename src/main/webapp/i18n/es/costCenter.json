@@ -1,0 +1,26 @@
+{
+  "payrollApp": {
+    "costCenter": {
+      "home": {
+        "title": "Cost Centers",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Cost Center",
+        "createOrEditLabel": "Crear o editar Cost Center",
+        "notFound": "Ningún Cost Centers encontrado"
+      },
+      "created": "Un nuevo Cost Center ha sido creado con el identificador {{ param }}",
+      "updated": "Un Cost Center ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Cost Center ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Cost Center {{ id }}?"
+      },
+      "detail": {
+        "title": "Cost Center"
+      },
+      "id": "ID",
+      "costCenterCode": "Cost Center Code",
+      "costCenterName": "Cost Center Name",
+      "costCenterType": "Cost Center Type"
+    }
+  }
+}

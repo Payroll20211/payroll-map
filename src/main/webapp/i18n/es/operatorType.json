@@ -1,0 +1,25 @@
+{
+  "payrollApp": {
+    "operatorType": {
+      "home": {
+        "title": "Operator Types",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Operator Type",
+        "createOrEditLabel": "Crear o editar Operator Type",
+        "notFound": "Ningún Operator Types encontrado"
+      },
+      "created": "Un nuevo Operator Type ha sido creado con el identificador {{ param }}",
+      "updated": "Un Operator Type ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Operator Type ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Operator Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Operator Type"
+      },
+      "id": "ID",
+      "code": "Code",
+      "description": "Description"
+    }
+  }
+}

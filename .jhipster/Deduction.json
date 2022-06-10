@@ -1,0 +1,44 @@
+{
+  "applications": ["payroll"],
+  "changelogDate": "20220610015946",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "deduction",
+  "fields": [
+    {
+      "fieldName": "deductionCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Deduction",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "description",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "deduction",
+      "relationshipName": "deduction",
+      "relationshipType": "one-to-many",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "accountPlan",
+      "otherEntityRelationshipName": "deduction",
+      "ownerSide": true,
+      "relationshipName": "accountPlan",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}
