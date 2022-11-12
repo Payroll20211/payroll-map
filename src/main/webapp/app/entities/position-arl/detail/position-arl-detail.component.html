@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="positionArl">
+      <h2 data-cy="positionArlDetailsHeading"><span payrollTranslate="payrollApp.positionArl.detail.title">Position Arl</span></h2>
+
+      <hr />
+
+      <payroll-alert-error></payroll-alert-error>
+
+      <payroll-alert></payroll-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span payrollTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ positionArl.id }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.positionArl.riskClass">Risk Class</span></dt>
+        <dd>
+          <span>{{ positionArl.riskClass }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.positionArl.positionCode">Position Code</span></dt>
+        <dd>
+          <span>{{ positionArl.positionCode }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.positionArl.position">Position</span></dt>
+        <dd>
+          <span>{{ positionArl.position }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span payrollTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/position-arl', positionArl.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span payrollTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

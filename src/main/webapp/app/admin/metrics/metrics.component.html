@@ -1,0 +1,51 @@
+<div>
+  <h2>
+    <span id="metrics-page-heading" payrollTranslate="metrics.title" data-cy="metricsPageHeading">Application Metrics</span>
+
+    <button class="btn btn-primary float-end" (click)="refresh()">
+      <fa-icon icon="sync"></fa-icon> <span payrollTranslate="metrics.refresh.button">Refresh</span>
+    </button>
+  </h2>
+
+  <h3 payrollTranslate="metrics.jvm.title">JVM Metrics</h3>
+
+  <div class="row" *ngIf="metrics && !updatingMetrics">
+    <payroll-jvm-memory class="col-md-4" [updating]="updatingMetrics" [jvmMemoryMetrics]="metrics.jvm"></payroll-jvm-memory>
+
+    <payroll-jvm-threads class="col-md-4" [threads]="threads"></payroll-jvm-threads>
+
+    <payroll-metrics-system class="col-md-4" [updating]="updatingMetrics" [systemMetrics]="metrics.processMetrics"></payroll-metrics-system>
+  </div>
+
+  <payroll-metrics-garbagecollector
+    *ngIf="metrics && metricsKeyExists('garbageCollector')"
+    [updating]="updatingMetrics"
+    [garbageCollectorMetrics]="metrics.garbageCollector"
+  ></payroll-metrics-garbagecollector>
+
+  <div class="well well-lg" *ngIf="updatingMetrics" payrollTranslate="metrics.updating">Updating...</div>
+
+  <payroll-metrics-request
+    *ngIf="metrics && metricsKeyExists('http.server.requests')"
+    [updating]="updatingMetrics"
+    [requestMetrics]="metrics['http.server.requests']"
+  ></payroll-metrics-request>
+
+  <payroll-metrics-endpoints-requests
+    *ngIf="metrics && metricsKeyExists('services')"
+    [updating]="updatingMetrics"
+    [endpointsRequestsMetrics]="metrics.services"
+  ></payroll-metrics-endpoints-requests>
+
+  <payroll-metrics-cache
+    *ngIf="metrics && metricsKeyExists('cache')"
+    [updating]="updatingMetrics"
+    [cacheMetrics]="metrics.cache"
+  ></payroll-metrics-cache>
+
+  <payroll-metrics-datasource
+    *ngIf="metrics && metricsKeyExistsAndObjectNotEmpty('databases')"
+    [updating]="updatingMetrics"
+    [datasourceMetrics]="metrics.databases"
+  ></payroll-metrics-datasource>
+</div>

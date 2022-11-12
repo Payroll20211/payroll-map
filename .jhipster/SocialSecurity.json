@@ -1,0 +1,28 @@
+{
+  "applications": ["payroll"],
+  "changelogDate": "20220610015746",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "social_security",
+  "fields": [
+    {
+      "fieldName": "eps",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "afp",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SocialSecurity",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

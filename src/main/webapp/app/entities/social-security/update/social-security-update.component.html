@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="payroll-social-security-heading"
+        data-cy="SocialSecurityCreateUpdateHeading"
+        payrollTranslate="payrollApp.socialSecurity.home.createOrEditLabel"
+      >
+        Create or edit a Social Security
+      </h2>
+
+      <div>
+        <payroll-alert-error></payroll-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" payrollTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.socialSecurity.eps" for="field_eps">Eps</label>
+          <input type="text" class="form-control" name="eps" id="field_eps" data-cy="eps" formControlName="eps" />
+          <div *ngIf="editForm.get('eps')!.invalid && (editForm.get('eps')!.dirty || editForm.get('eps')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('eps')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('eps')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be longer than 100 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.socialSecurity.afp" for="field_afp">Afp</label>
+          <input type="text" class="form-control" name="afp" id="field_afp" data-cy="afp" formControlName="afp" />
+          <div *ngIf="editForm.get('afp')!.invalid && (editForm.get('afp')!.dirty || editForm.get('afp')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('afp')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('afp')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be longer than 100 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span payrollTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span payrollTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "payrollApp": {
+    "socialSecurity": {
+      "home": {
+        "title": "Social Securities",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Social Security",
+        "createOrEditLabel": "Create or edit a Social Security",
+        "notFound": "No Social Securities found"
+      },
+      "created": "A new Social Security is created with identifier {{ param }}",
+      "updated": "A Social Security is updated with identifier {{ param }}",
+      "deleted": "A Social Security is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Social Security {{ id }}?"
+      },
+      "detail": {
+        "title": "Social Security"
+      },
+      "id": "ID",
+      "eps": "Eps",
+      "afp": "Afp"
+    }
+  }
+}

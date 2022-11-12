@@ -1,0 +1,80 @@
+<div>
+  <h2 id="page-heading" data-cy="SocialSecurityHeading">
+    <span payrollTranslate="payrollApp.socialSecurity.home.title">Social Securities</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span payrollTranslate="payrollApp.socialSecurity.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-social-security"
+        [routerLink]="['/social-security/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span payrollTranslate="payrollApp.socialSecurity.home.createLabel"> Create a new Social Security </span>
+      </button>
+    </div>
+  </h2>
+
+  <payroll-alert-error></payroll-alert-error>
+
+  <payroll-alert></payroll-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="socialSecurities?.length === 0">
+    <span payrollTranslate="payrollApp.socialSecurity.home.notFound">No socialSecurities found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="socialSecurities && socialSecurities.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span payrollTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.socialSecurity.eps">Eps</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.socialSecurity.afp">Afp</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let socialSecurity of socialSecurities; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/social-security', socialSecurity.id, 'view']">{{ socialSecurity.id }}</a>
+          </td>
+          <td>{{ socialSecurity.eps }}</td>
+          <td>{{ socialSecurity.afp }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/social-security', socialSecurity.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" payrollTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/social-security', socialSecurity.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" payrollTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(socialSecurity)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" payrollTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

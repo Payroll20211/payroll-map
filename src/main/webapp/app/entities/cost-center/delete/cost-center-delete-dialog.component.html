@@ -1,0 +1,29 @@
+<form *ngIf="costCenter" name="deleteForm" (ngSubmit)="confirmDelete(costCenter.id!)">
+  <div class="modal-header">
+    <h4 class="modal-title" data-cy="costCenterDeleteDialogHeading" payrollTranslate="entity.delete.title">Confirm delete operation</h4>
+
+    <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <payroll-alert-error></payroll-alert-error>
+
+    <p
+      id="payroll-delete-costCenter-heading"
+      payrollTranslate="payrollApp.costCenter.delete.question"
+      [translateValues]="{ id: costCenter.id }"
+    >
+      Are you sure you want to delete this Cost Center?
+    </p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+      <fa-icon icon="ban"></fa-icon>&nbsp;<span payrollTranslate="entity.action.cancel">Cancel</span>
+    </button>
+
+    <button id="payroll-confirm-delete-costCenter" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+      <fa-icon icon="times"></fa-icon>&nbsp;<span payrollTranslate="entity.action.delete">Delete</span>
+    </button>
+  </div>
+</form>

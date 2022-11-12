@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="user">
+      <h2>
+        <span payrollTranslate="userManagement.detail.title">User</span> [<strong>{{ user.login }}</strong
+        >]
+      </h2>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span payrollTranslate="userManagement.login">Login</span></dt>
+        <dd>
+          <span>{{ user.login }}</span>
+          <span *ngIf="user.activated" class="badge bg-success" payrollTranslate="userManagement.activated">Activated</span>
+          <span *ngIf="!user.activated" class="badge bg-danger" payrollTranslate="userManagement.deactivated">Deactivated</span>
+        </dd>
+
+        <dt><span payrollTranslate="userManagement.firstName">First Name</span></dt>
+        <dd>{{ user.firstName }}</dd>
+
+        <dt><span payrollTranslate="userManagement.lastName">Last Name</span></dt>
+        <dd>{{ user.lastName }}</dd>
+
+        <dt><span payrollTranslate="userManagement.email">Email</span></dt>
+        <dd>{{ user.email }}</dd>
+
+        <dt><span payrollTranslate="userManagement.langKey">Lang Key</span></dt>
+        <dd>{{ user.langKey }}</dd>
+
+        <dt><span payrollTranslate="userManagement.createdBy">Created By</span></dt>
+        <dd>{{ user.createdBy }}</dd>
+
+        <dt><span payrollTranslate="userManagement.createdDate">Created Date</span></dt>
+        <dd>{{ user.createdDate | date: 'dd/MM/yy HH:mm' }}</dd>
+
+        <dt><span payrollTranslate="userManagement.lastModifiedBy">Last Modified By</span></dt>
+        <dd>{{ user.lastModifiedBy }}</dd>
+
+        <dt><span payrollTranslate="userManagement.lastModifiedDate">Last Modified Date</span></dt>
+        <dd>{{ user.lastModifiedDate | date: 'dd/MM/yy HH:mm' }}</dd>
+
+        <dt><span payrollTranslate="userManagement.profiles">Profiles</span></dt>
+        <dd>
+          <ul class="list-unstyled">
+            <li *ngFor="let authority of user.authorities">
+              <span class="badge bg-info">{{ authority }}</span>
+            </li>
+          </ul>
+        </dd>
+      </dl>
+
+      <button type="submit" routerLink="../../" class="btn btn-info">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span payrollTranslate="entity.action.back">Back</span>
+      </button>
+    </div>
+  </div>
+</div>

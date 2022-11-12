@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="period">
+      <h2 data-cy="periodDetailsHeading"><span payrollTranslate="payrollApp.period.detail.title">Period</span></h2>
+
+      <hr />
+
+      <payroll-alert-error></payroll-alert-error>
+
+      <payroll-alert></payroll-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span payrollTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ period.id }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.period.periodCode">Period Code</span></dt>
+        <dd>
+          <span>{{ period.periodCode }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.period.description">Description</span></dt>
+        <dd>
+          <span>{{ period.description }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span payrollTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/period', period.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span payrollTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

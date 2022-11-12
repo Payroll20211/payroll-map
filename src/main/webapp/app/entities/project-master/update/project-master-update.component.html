@@ -1,0 +1,242 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="payroll-project-master-heading"
+        data-cy="ProjectMasterCreateUpdateHeading"
+        payrollTranslate="payrollApp.projectMaster.home.createOrEditLabel"
+      >
+        Create or edit a Project Master
+      </h2>
+
+      <div>
+        <payroll-alert-error></payroll-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" payrollTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.projectMaster.projectMasterCode" for="field_projectMasterCode"
+            >Project Master Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="projectMasterCode"
+            id="field_projectMasterCode"
+            data-cy="projectMasterCode"
+            formControlName="projectMasterCode"
+          />
+          <div
+            *ngIf="
+              editForm.get('projectMasterCode')!.invalid &&
+              (editForm.get('projectMasterCode')!.dirty || editForm.get('projectMasterCode')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('projectMasterCode')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('projectMasterCode')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.projectMaster.projectMasterName" for="field_projectMasterName"
+            >Project Master Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="projectMasterName"
+            id="field_projectMasterName"
+            data-cy="projectMasterName"
+            formControlName="projectMasterName"
+          />
+          <div
+            *ngIf="
+              editForm.get('projectMasterName')!.invalid &&
+              (editForm.get('projectMasterName')!.dirty || editForm.get('projectMasterName')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('projectMasterName')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('projectMasterName')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be longer than 100 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.projectMaster.costCenterType" for="field_costCenterType"
+            >Cost Center Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="costCenterType"
+            id="field_costCenterType"
+            data-cy="costCenterType"
+            formControlName="costCenterType"
+          />
+          <div
+            *ngIf="
+              editForm.get('costCenterType')!.invalid && (editForm.get('costCenterType')!.dirty || editForm.get('costCenterType')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('costCenterType')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('costCenterType')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be longer than 100 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.projectMaster.projectDirectorName" for="field_projectDirectorName"
+            >Project Director Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="projectDirectorName"
+            id="field_projectDirectorName"
+            data-cy="projectDirectorName"
+            formControlName="projectDirectorName"
+          />
+          <div
+            *ngIf="
+              editForm.get('projectDirectorName')!.invalid &&
+              (editForm.get('projectDirectorName')!.dirty || editForm.get('projectDirectorName')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('projectDirectorName')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('projectDirectorName')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be longer than 100 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.projectMaster.phone" for="field_phone">Phone</label>
+          <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+          <div *ngIf="editForm.get('phone')!.invalid && (editForm.get('phone')!.dirty || editForm.get('phone')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('phone')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('phone')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be longer than 100 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.projectMaster.costCenter" for="field_costCenter">Cost Center</label>
+          <select class="form-control" id="field_costCenter" data-cy="costCenter" name="costCenter" formControlName="costCenter">
+            <option *ngIf="!editForm.get('costCenter')!.value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="
+                costCenterOption.id === editForm.get('costCenter')!.value?.id ? editForm.get('costCenter')!.value : costCenterOption
+              "
+              *ngFor="let costCenterOption of costCentersSharedCollection; trackBy: trackCostCenterById"
+            >
+              {{ costCenterOption.costCenterName }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="editForm.get(['costCenter'])!.invalid && (editForm.get(['costCenter'])!.dirty || editForm.get(['costCenter'])!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['costCenter'])?.errors?.required"
+            payrollTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.projectMaster.employee" for="field_employee">Employee</label>
+          <select class="form-control" id="field_employee" data-cy="employee" name="employee" formControlName="employee">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="employeeOption.id === editForm.get('employee')!.value?.id ? editForm.get('employee')!.value : employeeOption"
+              *ngFor="let employeeOption of employeesSharedCollection; trackBy: trackEmployeeById"
+            >
+              {{ employeeOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span payrollTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span payrollTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

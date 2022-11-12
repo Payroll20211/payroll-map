@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="now()" dbms="mysql, mariadb"/>
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+    <property name="clobType" value="clob" dbms="h2"/>
+    <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
+    <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
+    <property name="datetimeType" value="datetime(6)" dbms="mysql, mariadb"/>
+    <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610015346_added_entity_Contract.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610015446_added_entity_DocumentType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610015546_added_entity_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610015646_added_entity_PositionArl.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610015746_added_entity_SocialSecurity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610015846_added_entity_Income.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610015946_added_entity_Deduction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610020046_added_entity_Period.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610020146_added_entity_CostCenter.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610020246_added_entity_ProjectMaster.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610020346_added_entity_AccountPlan.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610020446_added_entity_SocialPayments.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610020546_added_entity_Allergy.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610020646_added_entity_OperatorType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610020746_added_entity_OperatorMatriz.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20220610015546_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610015846_added_entity_constraints_Income.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610015946_added_entity_constraints_Deduction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220610020246_added_entity_constraints_ProjectMaster.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
+</databaseChangeLog>

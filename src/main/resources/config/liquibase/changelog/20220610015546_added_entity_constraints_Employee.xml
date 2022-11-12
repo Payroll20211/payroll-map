@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Employee.
+    -->
+    <changeSet id="20220610015546-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payroll_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="contract_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__contract_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contract"/>
+
+        <addForeignKeyConstraint baseColumnNames="allergy_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__allergy_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="allergy"/>
+
+        <addForeignKeyConstraint baseColumnNames="social_payments_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__social_payments_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="social_payments"/>
+
+        <addForeignKeyConstraint baseColumnNames="position_arl_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__position_arl_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="position_arl"/>
+
+        <addForeignKeyConstraint baseColumnNames="period_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__period_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="period"/>
+
+        <addForeignKeyConstraint baseColumnNames="operator_type_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__operator_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="operator_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="operator_matriz_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__operator_matriz_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="operator_matriz"/>
+
+        <addForeignKeyConstraint baseColumnNames="social_security_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__social_security_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="social_security"/>
+
+        <addForeignKeyConstraint baseColumnNames="income_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__income_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="income"/>
+
+        <addForeignKeyConstraint baseColumnNames="deduction_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__deduction_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="deduction"/>
+
+        <addForeignKeyConstraint baseColumnNames="document_type_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__document_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document_type"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,29 @@
+{
+  "payrollApp": {
+    "operatorMatriz": {
+      "home": {
+        "title": "Operator Matrizs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Operator Matriz",
+        "createOrEditLabel": "Create or edit a Operator Matriz",
+        "notFound": "No Operator Matrizs found"
+      },
+      "created": "A new Operator Matriz is created with identifier {{ param }}",
+      "updated": "A Operator Matriz is updated with identifier {{ param }}",
+      "deleted": "A Operator Matriz is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Operator Matriz {{ id }}?"
+      },
+      "detail": {
+        "title": "Operator Matriz"
+      },
+      "id": "ID",
+      "numberid": "Numberid",
+      "digitverification": "Digitverification",
+      "name": "Name",
+      "address": "Address",
+      "city": "City",
+      "email": "Email"
+    }
+  }
+}

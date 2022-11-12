@@ -1,0 +1,166 @@
+
+application {
+    config {
+        baseName payroll
+        applicationType monolith
+        packageName co.edu.sena
+        authenticationType jwt
+        devDatabaseType mysql
+        prodDatabaseType mysql
+        cacheProvider no
+        buildTool maven
+        clientFramework angularX
+        enableTranslation true
+        nativeLanguage es
+        languages [en, es]
+        //websocket spring-websocket
+        //testFrameworks [cucumber]
+        //entitySuffix false
+        jhiPrefix payroll
+        reactive false
+        serverPort 8080
+        searchEngine false
+        clientTheme slate
+        clientThemeVariant primary
+    }
+    entities *
+  
+}
+
+entity Contract{
+salary Double required
+}
+
+enum StateDocument{
+ACTIVE(ACTIVO)
+INACTIVE(INACTIVO)
+}
+
+entity DocumentType{
+documentName String required maxlength(50) unique
+initials String required maxlength(10) unique
+stateDocumentType StateDocument required
+}
+
+entity Employee{
+completeName String required maxlength(100)
+address String required maxlength(100)
+dateStart ZonedDateTime required 
+city String required maxlength(50)
+mobile Integer required
+stateEmployee StateEmployee required
+}
+
+entity PositionArl{
+riskClass Integer required
+positionCode String required maxlength(10)
+position String required maxlength(100)
+}
+
+enum StateEmployee{
+ACTIVE(ACTIVO)
+INACTIVE(INACTIVO)
+}
+
+entity SocialSecurity{
+eps String required maxlength(100)
+afp String required maxlength(100)
+}
+
+entity Income{
+incomeCode String required maxlength(10)
+description String required maxlength(100)
+}
+
+entity Deduction{
+deductionCode String required maxlength(10)
+description String required maxlength(100)
+}
+
+entity Period{
+periodCode String required maxlength(10)
+description String required maxlength(100)
+}
+
+entity CostCenter{
+costCenterCode String required maxlength(10)
+costCenterName String required maxlength(100)
+costCenterType String required maxlength(100)
+}
+
+entity ProjectMaster{
+projectMasterCode String required maxlength(10)
+projectMasterName String required maxlength(100)
+costCenterType String required maxlength(100)
+projectDirectorName String required maxlength(100)
+phone String required maxlength(100)
+}
+
+entity AccountPlan{
+code String required maxlength(10)
+description String required maxlength(100)
+}
+
+entity SocialPayments{
+code String required maxlength(10)
+description String required maxlength(100)
+}
+
+entity Allergy{
+description String required maxlength(100)
+treatment String required maxlength(100)
+
+}
+
+entity OperatorType{
+code String required maxlength(10)
+description String required maxlength(100)
+}
+
+entity OperatorMatriz{
+numberid Integer
+digitverification Integer
+name String required maxlength(100)
+address String required maxlength(100)
+city String required maxlength(100)
+email String required maxlength(100)
+}
+
+relationship OneToOne{
+	Employee{user(login) required} to User
+    Employee {contract(salary) required} to Contract
+    Employee{allergy(description) required} to Allergy
+    Employee{socialPayments(description) required} to SocialPayments
+    Employee{positionArl(position) required} to PositionArl
+    Employee{period(description) required} to Period
+    Employee{operatorType(description) required} to OperatorType
+    Employee{operatorMatriz(name) required} to OperatorMatriz
+    Employee{socialSecurity(eps) required} to SocialSecurity
+    
+    
+    
+    
+    
+    
+    
+}
+
+relationship OneToMany{
+
+Income{income(description) required} to Employee
+Deduction{deduction(description) required} to Employee
+Employee{employee(completeName) required} to ProjectMaster
+DocumentType{documentType(documentName) required} to Employee
+}
+
+relationship ManyToOne{
+ProjectMaster{costCenter(costCenterName) required} to CostCenter
+}
+
+relationship ManyToMany{
+Income to AccountPlan
+Deduction to AccountPlan
+
+}
+
+
