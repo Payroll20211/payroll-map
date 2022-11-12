@@ -1,4 +1,5 @@
 function setupProxy({ tls }) {
+ /*enable Cors*/
   const conf = [
     {
       context: ['/api', '/services', '/management', '/v3/api-docs', '/h2-console', '/auth', '/health'],
