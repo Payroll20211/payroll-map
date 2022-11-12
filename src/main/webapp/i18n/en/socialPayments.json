@@ -1,0 +1,25 @@
+{
+  "payrollApp": {
+    "socialPayments": {
+      "home": {
+        "title": "Social Payments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Social Payments",
+        "createOrEditLabel": "Create or edit a Social Payments",
+        "notFound": "No Social Payments found"
+      },
+      "created": "A new Social Payments is created with identifier {{ param }}",
+      "updated": "A Social Payments is updated with identifier {{ param }}",
+      "deleted": "A Social Payments is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Social Payments {{ id }}?"
+      },
+      "detail": {
+        "title": "Social Payments"
+      },
+      "id": "ID",
+      "code": "Code",
+      "description": "Description"
+    }
+  }
+}

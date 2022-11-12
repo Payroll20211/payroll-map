@@ -1,0 +1,25 @@
+{
+  "payrollApp": {
+    "operatorType": {
+      "home": {
+        "title": "Operator Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Operator Type",
+        "createOrEditLabel": "Create or edit a Operator Type",
+        "notFound": "No Operator Types found"
+      },
+      "created": "A new Operator Type is created with identifier {{ param }}",
+      "updated": "A Operator Type is updated with identifier {{ param }}",
+      "deleted": "A Operator Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Operator Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Operator Type"
+      },
+      "id": "ID",
+      "code": "Code",
+      "description": "Description"
+    }
+  }
+}

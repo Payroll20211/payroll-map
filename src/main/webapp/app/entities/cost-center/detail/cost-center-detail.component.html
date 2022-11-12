@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="costCenter">
+      <h2 data-cy="costCenterDetailsHeading"><span payrollTranslate="payrollApp.costCenter.detail.title">Cost Center</span></h2>
+
+      <hr />
+
+      <payroll-alert-error></payroll-alert-error>
+
+      <payroll-alert></payroll-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span payrollTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ costCenter.id }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.costCenter.costCenterCode">Cost Center Code</span></dt>
+        <dd>
+          <span>{{ costCenter.costCenterCode }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.costCenter.costCenterName">Cost Center Name</span></dt>
+        <dd>
+          <span>{{ costCenter.costCenterName }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.costCenter.costCenterType">Cost Center Type</span></dt>
+        <dd>
+          <span>{{ costCenter.costCenterType }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span payrollTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cost-center', costCenter.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span payrollTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

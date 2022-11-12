@@ -1,0 +1,82 @@
+<div>
+  <h2 id="page-heading" data-cy="PositionArlHeading">
+    <span payrollTranslate="payrollApp.positionArl.home.title">Position Arls</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span payrollTranslate="payrollApp.positionArl.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-position-arl"
+        [routerLink]="['/position-arl/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span payrollTranslate="payrollApp.positionArl.home.createLabel"> Create a new Position Arl </span>
+      </button>
+    </div>
+  </h2>
+
+  <payroll-alert-error></payroll-alert-error>
+
+  <payroll-alert></payroll-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="positionArls?.length === 0">
+    <span payrollTranslate="payrollApp.positionArl.home.notFound">No positionArls found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="positionArls && positionArls.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span payrollTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.positionArl.riskClass">Risk Class</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.positionArl.positionCode">Position Code</span></th>
+          <th scope="col"><span payrollTranslate="payrollApp.positionArl.position">Position</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let positionArl of positionArls; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/position-arl', positionArl.id, 'view']">{{ positionArl.id }}</a>
+          </td>
+          <td>{{ positionArl.riskClass }}</td>
+          <td>{{ positionArl.positionCode }}</td>
+          <td>{{ positionArl.position }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/position-arl', positionArl.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" payrollTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/position-arl', positionArl.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" payrollTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(positionArl)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" payrollTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

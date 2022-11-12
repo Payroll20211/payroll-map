@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="operatorMatriz">
+      <h2 data-cy="operatorMatrizDetailsHeading"><span payrollTranslate="payrollApp.operatorMatriz.detail.title">Operator Matriz</span></h2>
+
+      <hr />
+
+      <payroll-alert-error></payroll-alert-error>
+
+      <payroll-alert></payroll-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span payrollTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ operatorMatriz.id }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.operatorMatriz.numberid">Numberid</span></dt>
+        <dd>
+          <span>{{ operatorMatriz.numberid }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.operatorMatriz.digitverification">Digitverification</span></dt>
+        <dd>
+          <span>{{ operatorMatriz.digitverification }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.operatorMatriz.name">Name</span></dt>
+        <dd>
+          <span>{{ operatorMatriz.name }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.operatorMatriz.address">Address</span></dt>
+        <dd>
+          <span>{{ operatorMatriz.address }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.operatorMatriz.city">City</span></dt>
+        <dd>
+          <span>{{ operatorMatriz.city }}</span>
+        </dd>
+        <dt><span payrollTranslate="payrollApp.operatorMatriz.email">Email</span></dt>
+        <dd>
+          <span>{{ operatorMatriz.email }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span payrollTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/operator-matriz', operatorMatriz.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span payrollTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

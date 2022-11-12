@@ -1,0 +1,158 @@
+{
+  "applications": ["payroll"],
+  "changelogDate": "20220610015546",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "employee",
+  "fields": [
+    {
+      "fieldName": "completeName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "dateStart",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "mobile",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "stateEmployee",
+      "fieldType": "StateEmployee",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACTIVE (ACTIVO),INACTIVE (INACTIVO)"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Employee",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "employee",
+      "ownerSide": true,
+      "relationshipName": "user",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "salary",
+      "otherEntityName": "contract",
+      "otherEntityRelationshipName": "employee",
+      "ownerSide": true,
+      "relationshipName": "contract",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "description",
+      "otherEntityName": "allergy",
+      "otherEntityRelationshipName": "employee",
+      "ownerSide": true,
+      "relationshipName": "allergy",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "description",
+      "otherEntityName": "socialPayments",
+      "otherEntityRelationshipName": "employee",
+      "ownerSide": true,
+      "relationshipName": "socialPayments",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "position",
+      "otherEntityName": "positionArl",
+      "otherEntityRelationshipName": "employee",
+      "ownerSide": true,
+      "relationshipName": "positionArl",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "description",
+      "otherEntityName": "period",
+      "otherEntityRelationshipName": "employee",
+      "ownerSide": true,
+      "relationshipName": "period",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "description",
+      "otherEntityName": "operatorType",
+      "otherEntityRelationshipName": "employee",
+      "ownerSide": true,
+      "relationshipName": "operatorType",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "operatorMatriz",
+      "otherEntityRelationshipName": "employee",
+      "ownerSide": true,
+      "relationshipName": "operatorMatriz",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "eps",
+      "otherEntityName": "socialSecurity",
+      "otherEntityRelationshipName": "employee",
+      "ownerSide": true,
+      "relationshipName": "socialSecurity",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "completeName",
+      "otherEntityName": "projectMaster",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "employee",
+      "relationshipType": "one-to-many",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "income",
+      "otherEntityRelationshipName": "income",
+      "relationshipName": "income",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "deduction",
+      "otherEntityRelationshipName": "deduction",
+      "relationshipName": "deduction",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "documentType",
+      "otherEntityRelationshipName": "documentType",
+      "relationshipName": "documentType",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

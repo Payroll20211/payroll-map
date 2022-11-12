@@ -1,0 +1,30 @@
+{
+  "payrollApp": {
+    "projectMaster": {
+      "home": {
+        "title": "Project Masters",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Project Master",
+        "createOrEditLabel": "Crear o editar Project Master",
+        "notFound": "Ningún Project Masters encontrado"
+      },
+      "created": "Un nuevo Project Master ha sido creado con el identificador {{ param }}",
+      "updated": "Un Project Master ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Project Master ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Project Master {{ id }}?"
+      },
+      "detail": {
+        "title": "Project Master"
+      },
+      "id": "ID",
+      "projectMasterCode": "Project Master Code",
+      "projectMasterName": "Project Master Name",
+      "costCenterType": "Cost Center Type",
+      "projectDirectorName": "Project Director Name",
+      "phone": "Phone",
+      "costCenter": "Cost Center",
+      "employee": "Employee"
+    }
+  }
+}

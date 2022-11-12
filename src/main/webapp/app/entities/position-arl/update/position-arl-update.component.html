@@ -1,0 +1,112 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="payroll-position-arl-heading"
+        data-cy="PositionArlCreateUpdateHeading"
+        payrollTranslate="payrollApp.positionArl.home.createOrEditLabel"
+      >
+        Create or edit a Position Arl
+      </h2>
+
+      <div>
+        <payroll-alert-error></payroll-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" payrollTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.positionArl.riskClass" for="field_riskClass">Risk Class</label>
+          <input type="number" class="form-control" name="riskClass" id="field_riskClass" data-cy="riskClass" formControlName="riskClass" />
+          <div *ngIf="editForm.get('riskClass')!.invalid && (editForm.get('riskClass')!.dirty || editForm.get('riskClass')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('riskClass')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('riskClass')?.errors?.number"
+              payrollTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.positionArl.positionCode" for="field_positionCode">Position Code</label>
+          <input
+            type="text"
+            class="form-control"
+            name="positionCode"
+            id="field_positionCode"
+            data-cy="positionCode"
+            formControlName="positionCode"
+          />
+          <div
+            *ngIf="editForm.get('positionCode')!.invalid && (editForm.get('positionCode')!.dirty || editForm.get('positionCode')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('positionCode')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('positionCode')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" payrollTranslate="payrollApp.positionArl.position" for="field_position">Position</label>
+          <input type="text" class="form-control" name="position" id="field_position" data-cy="position" formControlName="position" />
+          <div *ngIf="editForm.get('position')!.invalid && (editForm.get('position')!.dirty || editForm.get('position')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('position')?.errors?.required"
+              payrollTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('position')?.errors?.maxlength"
+              payrollTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be longer than 100 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span payrollTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span payrollTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

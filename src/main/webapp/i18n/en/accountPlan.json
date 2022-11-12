@@ -1,0 +1,27 @@
+{
+  "payrollApp": {
+    "accountPlan": {
+      "home": {
+        "title": "Account Plans",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Account Plan",
+        "createOrEditLabel": "Create or edit a Account Plan",
+        "notFound": "No Account Plans found"
+      },
+      "created": "A new Account Plan is created with identifier {{ param }}",
+      "updated": "A Account Plan is updated with identifier {{ param }}",
+      "deleted": "A Account Plan is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Account Plan {{ id }}?"
+      },
+      "detail": {
+        "title": "Account Plan"
+      },
+      "id": "ID",
+      "code": "Code",
+      "description": "Description",
+      "income": "Income",
+      "deduction": "Deduction"
+    }
+  }
+}

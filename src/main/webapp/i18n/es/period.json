@@ -1,0 +1,25 @@
+{
+  "payrollApp": {
+    "period": {
+      "home": {
+        "title": "Periods",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Period",
+        "createOrEditLabel": "Crear o editar Period",
+        "notFound": "Ningún Periods encontrado"
+      },
+      "created": "Un nuevo Period ha sido creado con el identificador {{ param }}",
+      "updated": "Un Period ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Period ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Period {{ id }}?"
+      },
+      "detail": {
+        "title": "Period"
+      },
+      "id": "ID",
+      "periodCode": "Period Code",
+      "description": "Description"
+    }
+  }
+}

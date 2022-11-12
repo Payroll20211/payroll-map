@@ -1,0 +1,25 @@
+{
+  "payrollApp": {
+    "allergy": {
+      "home": {
+        "title": "Allergies",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Allergy",
+        "createOrEditLabel": "Crear o editar Allergy",
+        "notFound": "Ningún Allergies encontrado"
+      },
+      "created": "Un nuevo Allergy ha sido creado con el identificador {{ param }}",
+      "updated": "Un Allergy ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Allergy ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Allergy {{ id }}?"
+      },
+      "detail": {
+        "title": "Allergy"
+      },
+      "id": "ID",
+      "description": "Description",
+      "treatment": "Treatment"
+    }
+  }
+}

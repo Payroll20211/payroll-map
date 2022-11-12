@@ -1,0 +1,43 @@
+{
+  "applications": ["payroll"],
+  "changelogDate": "20220610020346",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "account_plan",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AccountPlan",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "income",
+      "otherEntityRelationshipName": "accountPlan",
+      "ownerSide": false,
+      "relationshipName": "income",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "deduction",
+      "otherEntityRelationshipName": "accountPlan",
+      "ownerSide": false,
+      "relationshipName": "deduction",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}
